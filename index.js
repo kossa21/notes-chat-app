@@ -1,8 +1,7 @@
 
 //This function reads the content of the input 
 const readText = e => {
-    console.log("Reading the content from the input");
-    const inputEl = document.querySelector("#message-box");
+        const inputEl = document.querySelector("#message-box");
     const messageText = inputEl.value;
 
     inputEl.value = "";
@@ -12,8 +11,7 @@ const readText = e => {
 
 //This function creates the correct time for a message
 const createMessageDate = () => {
-    console.log("Creating the date for the message");
-
+    
     let date = new Date();
     date = date.toLocaleTimeString();
 
@@ -25,8 +23,7 @@ const createMessageDate = () => {
 
 //This function creates the paragraph for a message
 const createMessageParagraph = content => {
-    console.log("Creating the paragraph for the message");
-
+    
     const messageEl = document.createElement("p");
     messageEl.innerText = content;
 
@@ -54,8 +51,7 @@ const createMessageParagraph = content => {
 
 //This function adds a new message to the message container
 const addMessageToContainer = messageEl => {
-    console.log("Adding message to the container");
-
+    
     //Remove first note
     toggleFirstNote(true);
 
@@ -67,8 +63,7 @@ const addMessageToContainer = messageEl => {
 
 //This function creates a new p with the content of the input
 const createMessage = e => {
-    console.log("Creating a new message");
-    
+        
     const messageText = readText();
     if (messageText != "") {
         const messageEl = createMessageParagraph(messageText);
@@ -80,8 +75,7 @@ const createMessage = e => {
 
 //This function deletes all the existent messages
 const deleteMessages = e => {
-    console.log("Deleting all messages");
-    const messagesEl = document.querySelector("#message-container");
+        const messagesEl = document.querySelector("#message-container");
     messagesEl.querySelectorAll("*").forEach( message => message.remove());
 
     toggleFirstNote();
@@ -93,8 +87,7 @@ const deleteMessages = e => {
 let enlargeMainContainer = true;
 
 const changeContainerSize = () => {
-    console.log("Changing the container size");
-    const mainContainerEl = document.querySelector(".main-container");
+        const mainContainerEl = document.querySelector(".main-container");
     const messageContainerEl = document.querySelector("#message-container");
         
     if(enlargeMainContainer) {
