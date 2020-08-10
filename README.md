@@ -2,7 +2,7 @@ Anandamaya Arno's application
 
 You can see it live in the following link:
 
-https://kossa21.github.io/meetmaps-application-exercise/
+https://kossa21.github.io/application-process-exercise/
 
 Features: 
 
