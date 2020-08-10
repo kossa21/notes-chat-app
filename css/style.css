@@ -1,0 +1,299 @@
+/* -----------------------------------------------------------
+                        CSS Variables
+-------------------------------------------------------------- */
+
+:root {
+    --green-background: #49e0a9;
+    --blue-background: #45afe2;
+    --dark-blue-background: #594ca0;
+
+    --main-container-height: 70vh;
+    --main-container-width: 70vw;
+    
+    --main-container-big-height: 90vh;
+    --main-container-big-width: 90vw;
+
+    --form-input-height: 50px;
+    --form-button-size: 62px;
+
+    --gray-background-text: rgb(242, 242, 242);
+    --gray-border-text: rgb(223, 223, 223);
+    --gray-text-color: rgb(149, 144, 144); 
+    --gray-dark-text-color: rgb(90, 90, 90);
+
+    --font-size-text: 1.4rem;
+    --font-size-btn: 1.5rem;
+
+    --body-background: var(--green-background);
+} 
+    
+
+/* -----------------------------------------------------------
+        CSS styles for laptop+ resolutions
+-------------------------------------------------------------- */
+
+body {
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100vh;
+    width: 100vw; 
+    
+    background-color: var(--body-background);
+    font-family: 'Mulish', sans-serif;
+
+    font-size: var(--font-size-text);
+}
+    
+.main-container {
+    width: var(--main-container-width);
+    height: var(--main-container-height);
+    background-color: white;
+    border: 2px solid rgb(109, 109, 109);
+    border-radius: 10px;
+
+    transition: height 0.7s ease;
+    transition: width 1s ease;
+}
+
+.main-container-header {
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+
+    background-color: rgb(34, 40, 71);
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.round {
+    width: 15px;
+    height: 15px;
+    border: 2px solid white;
+    box-shadow: 0 0 0 1.5px black;
+    border-radius: 10px;
+    margin: 0 5px;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.green {
+    background-color: rgb(26, 165, 21);
+}
+
+.main-container.big {
+    height: var(--main-container-big-height);
+    width: var(--main-container-big-width);
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+#enlargeBtn {
+    color: white;
+    font-size: var(--font-size-btn);;
+    margin-left: auto;
+    padding: 10px 15px;
+}
+
+#enlargeBtn:hover, .formBtn:hover{
+    cursor: pointer;  
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    height: var(--form-input-height);
+    width: 70%;
+    padding: 5px 20px;
+
+    border-radius: 20px;
+    border: 1px solid  var(--gray-border-text);
+    background-color: var(--gray-background-text);
+    color: var(--gray-dark-text-color);
+
+    font-size: var(--font-size-text);
+}
+
+input:focus, input:active, button:focus{
+    border: 1px solid var(--gray-border-text);
+    outline:none;
+}
+
+.formBtn {
+    height: var(--form-button-size);
+    width: var(--form-button-size); 
+    border-radius: 30px;
+    margin-left: 20px;
+
+    color: white;
+    font-size: var(--font-size-btn);
+    border:none;
+    box-shadow: none;
+}
+
+.form-buttons-div {
+    display: flex;
+}
+
+#submitMessageBtn {
+    background-color: var(--body-background);
+}
+
+#startOverMessageBtn {
+    background-color: rgb(235, 71, 71);
+}
+
+hr {
+    width: 90%; 
+}
+
+.message-container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+
+    overflow-y: scroll;
+    height: calc(var(--main-container-height) - 200px);
+}
+
+.message-container.big {
+    height: calc(var(--main-container-big-height) - 200px);
+}
+
+.message-container p {
+    border: 1px solid var(--gray-border-text);
+    border-radius: 5px;
+    
+    margin: 10px 0; 
+    padding: 15px;
+
+    background-color: var(--gray-background-text);
+    
+    width: calc(70% + 92px);
+    height: fit-content;
+
+    -webkit-box-shadow: 14px 15px 23px -28px rgba(128,128,128,1);
+    -moz-box-shadow: 14px 15px 23px -28px rgba(128,128,128,1);
+    box-shadow: 14px 15px 23px -28px rgba(128,128,128,1);
+
+}
+
+.message-container span {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.7em;
+    color: var(--gray-text-color);
+}
+
+.message-container p.first-note {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    text-align: center;
+}
+
+.disabled {
+    display:none;
+}
+ 
+
+
+/* -----------------------------------------------------------
+        CSS styles for tablet resolutions
+-------------------------------------------------------------- */
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    :root {
+        --main-container-height: 80vh;
+        --main-container-width: 90vw;
+        
+        --main-container-big-height: 90vh;
+        --main-container-big-width: 90vw;
+
+        --form-input-height: 30px;
+        --form-button-size: 42px;
+
+        --font-size-text: 1rem;
+        --font-size-btn: 1.2rem;
+
+        --body-background: var(--blue-background);
+    }
+
+    input {
+        width: calc(100% - var(--form-button-size) * 2 - 60px);
+    }
+
+    .formBtn {
+        margin-left: 5px;
+    }
+}
+
+
+/* -----------------------------------------------------------
+        CSS styles for small device resolutions
+-------------------------------------------------------------- */
+
+
+@media only screen and (max-width: 767px) {
+
+    :root {
+        --main-container-height: 80vh;
+        --main-container-width: 90vw;
+        
+        --main-container-big-height: 90vh;
+        --main-container-big-width: 90vw;
+
+        --form-input-height: 30px;
+        --form-button-size: 42px;
+        
+        --font-size-text: 1;
+        --font-size-btn: 1.1rem;
+
+        --body-background: var(--dark-blue-background);
+        } 
+
+    #enlargeBtn {
+        display: none;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+    
+    input {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .message-container p {
+        padding: 5px;   
+        width: 90%;
+    }
+
+    .message-container, .message-container.big {
+        height: calc(var(--main-container-big-height) - 250px);
+    }
+}

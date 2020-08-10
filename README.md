@@ -1,1 +1,0 @@
-# meetmaps-application-exercise

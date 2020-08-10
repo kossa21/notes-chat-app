@@ -3,17 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/all.css" rel="stylesheet">
+
     <title>Meetmaps Application </title>
 </head>
 <body>
-    <form action="">
-        <label for="message-box">Por favor escribe tu mensaje</label>
-        <input type="text" name="message-box" id="message-box" placeholder="Introduce tu mensaje">
-        <button id="submitMessage" type="submit">Go</button>
-    </form>
+    <div class="main-container">
+        <div class="main-container-header">
+            <div class="round red"></div>
+            <div class="round orange"></div>
+            <div class="round green"></div>
+            <i class="fas fa-expand-alt" id="enlargeBtn" title="Ampliar ventana"></i>
+        </div>
 
-    <div id="message-container">
-        <p>These are the messages</p>
+        <form action="" class="padding-10">
+            <input type="text" name="message-box" id="message-box" placeholder="Escribe una nota" autocomplete="off">
+            <div class="form-buttons-div">
+                <button id="submitMessageBtn" class="formBtn" type="submit" title="Enviar nota"><i class="fas fa-paper-plane"></i></button>
+                <button id="startOverMessageBtn" class="formBtn" type="submit" title="Comenzar de nuevo"><i class="far fa-trash-alt"></i></button>
+            </div>
+        </form>
+
+        <hr>
+    
+        <div id="message-container" class="message-container padding-10">
+            <p class="first-note">Comienza a escribir tu primera nota!</p>
+        </div>
     </div>
 
     <script src="index.js"></script>

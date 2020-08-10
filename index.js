@@ -1,6 +1,7 @@
 
-
+//This function reads the content of the input 
 const readText = e => {
+    console.log("Reading the content from the input");
     const inputEl = document.querySelector("#message-box");
     const messageText = inputEl.value;
 
@@ -9,20 +10,115 @@ const readText = e => {
     return messageText;
 }
 
-const createMessage = e => {
-    const messageText = readText();
+//This function creates the correct time for a message
+const createMessageDate = () => {
+    console.log("Creating the date for the message");
+
+    let date = new Date();
+    date = date.toLocaleTimeString();
+
+    const dateEl = document.createElement("span");
+    dateEl.innerText = date;
+    
+    return dateEl;
+}
+
+//This function creates the paragraph for a message
+const createMessageParagraph = content => {
+    console.log("Creating the paragraph for the message");
 
     const messageEl = document.createElement("p");
-    messageEl.innerText = messageText;
+    messageEl.innerText = content;
 
-    const messageDivEl = document.createElement("div");
-    messageDivEl.appendChild(messageEl);
+    const dateEl = createMessageDate();
+    messageEl.appendChild(dateEl);
+
+    return messageEl;
+}
+
+//This function adds or erases the first note 
+    let noMessages = true;
+
+    const toggleFirstNote = hideFirstNote => {
+        const firstNoteEl = document.querySelector(".message-container p.first-note");
+        
+        if(hideFirstNote) {
+            firstNoteEl.classList.add("disabled");
+            noMessages = false;
+        } else {
+            firstNoteEl.classList.remove("disabled");
+            noMessages = true;
+        }
+    }
+
+
+//This function adds a new message to the message container
+const addMessageToContainer = messageEl => {
+    console.log("Adding message to the container");
+
+    //Remove first note
+    toggleFirstNote(true);
 
     const messagesEl = document.querySelector("#message-container");
-    messagesEl.appendChild(messageDivEl);
+    messagesEl.append(messageEl);
+
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+}
+
+//This function creates a new p with the content of the input
+const createMessage = e => {
+    console.log("Creating a new message");
     
+    const messageText = readText();
+    if (messageText != "") {
+        const messageEl = createMessageParagraph(messageText);
+        addMessageToContainer(messageEl);
+    }
+   
     e.preventDefault();
 }
 
-const buttonEl = document.querySelector("#submitMessage");
-buttonEl.addEventListener("click", createMessage);
+//This function deletes all the existent messages
+const deleteMessages = e => {
+    console.log("Deleting all messages");
+    const messagesEl = document.querySelector("#message-container");
+    messagesEl.querySelectorAll("*").forEach( message => message.remove());
+
+    toggleFirstNote();
+
+    e.preventDefault();
+}
+
+//This function will enlarge or reduce the size of the main container
+let enlargeMainContainer = true;
+
+const changeContainerSize = () => {
+    console.log("Changing the container size");
+    const mainContainerEl = document.querySelector(".main-container");
+    const messageContainerEl = document.querySelector("#message-container");
+        
+    if(enlargeMainContainer) {
+        mainContainerEl.classList.add("big");
+        messageContainerEl.classList.add("big");
+    }
+    else {
+        mainContainerEl.classList.remove("big");
+        messageContainerEl.classList.remove("big");
+    }
+    
+    
+    enlargeMainContainer = !enlargeMainContainer;
+}
+
+
+//Adding click listener to the submit button
+const submitBtnEl = document.querySelector("#submitMessageBtn")
+                    .addEventListener("click", createMessage);
+
+//Adding click listener to the start over button
+const startOverBtnEl = document.querySelector("#startOverMessageBtn")
+                    .addEventListener("click", deleteMessages);
+
+//Adding click listener to the enlarge button
+const enlargeBtnEl = document.querySelector("#enlargeBtn")
+                    .addEventListener("click", changeContainerSize);
