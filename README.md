@@ -1,4 +1,4 @@
-Anandamaya Arno's application
+Notes / Chat app
 
 You can see it live in the following link:
 
