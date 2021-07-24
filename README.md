@@ -2,7 +2,7 @@ Anandamaya Arno's application
 
 You can see it live in the following link:
 
-https://kossa21.github.io/application-process-exercise/
+https://kossa21.github.io/notes-chat-app/
 
 Features: 
 
@@ -15,3 +15,4 @@ Features:
 
 - Expandable window.
 - Different background color depending on the resolution.
+- Scrollable notes when new notes are added.
